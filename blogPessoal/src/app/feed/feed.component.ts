@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
+  myimage: string = "assets/imagem/IMG_2116.jpg";
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
 }
+
