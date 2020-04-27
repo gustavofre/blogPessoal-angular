@@ -9,6 +9,9 @@ import { Postagem } from '../model/postagem';
 })
 export class FeedComponent implements OnInit {
 
+  key = 'data'
+  reverse = true
+
   myimage: string = "assets/imagem/IMG_2116.jpg";
 
   listaPostagens: Postagem[]
