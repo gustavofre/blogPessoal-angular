@@ -12,6 +12,7 @@ export class FeedComponent implements OnInit {
   myimage: string = "assets/imagem/IMG_2116.jpg";
 
   listaPostagens: Postagem[]
+  postagem: Postagem = new Postagem
 
   constructor(private postagemService: PostagemService) { }
 
@@ -22,6 +23,13 @@ export class FeedComponent implements OnInit {
   findallPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
+    })
+  }
+
+  publicar() {
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.postagem = resp
+      location.assign('/feed')
     })
   }
 
