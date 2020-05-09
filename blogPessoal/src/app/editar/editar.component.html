@@ -18,13 +18,6 @@
                     <a href="https://github.com/gustavofre" class="btn btn-outline-dark d-flex justify-content-center"
                         targer="_blank">GitHub</a>
 
-                    <hr class="mt-4 mb-4">
-
-                    <h6 class="mb-3 text-monospace text-center">Pesquisar por título</h6>
-
-                    <input type="text" class="form-control mb-3 w-100" placeholder="Procurar postagem">
-                    <button class="btn btn-outline-warning w-100" type="button">Pesquisar</button>
-
                 </div>
 
             </div>
@@ -33,7 +26,7 @@
         <div class="col-md-8">
 
             <div>
-                <h3 class="text-center mb-4 text-monospace"> Como tem sido a sua experiência na Generation?</h3>
+                <h3 class="text-center mb-4 text-monospace"> Edição de Postagem</h3>
             </div>
             <div class="form-group">
                 <label for="titulo" class="text-monospace">Titulo:</label>
@@ -47,30 +40,9 @@
             </div>
 
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-info w-25" (click)="publicar()">Publicar</button>
+                <button type="button" class="btn btn-outline-info w-25" (click)="salvar()">Salvar</button>
             </div>
 
-            <hr class="mt-5 mb-5">
-
-            <h3 class="text-monospace mb-5">Minhas postagens </h3>
-
-            <div class="card mb-4" *ngFor="let postagem of listaPostagens | orderBy : key : reverse">
-                <div class="card-header">
-                    <h5 class="card-title"> {{postagem.titulo}} </h5>
-
-                    <button class="btn btn-outline-info" [routerLink]="['/editar', postagem.id]">
-                        Editar
-                    </button>
-
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{postagem.texto}}</p>
-                    <small class="form-text m-0 text-muted mb-3 text-monospace">
-                        {{postagem.data | date: 'dd/MM/yyyy'}}
-                        às {{postagem.data | date: 'HH:mm'}}
-                    </small>
-                </div>
-            </div>
         </div>
     </div>
 
