@@ -16,12 +16,26 @@ export class FeedComponent implements OnInit {
 
   listaPostagens: Postagem[]
   postagem: Postagem = new Postagem
+  alerta: boolean = false
+  titulo: string
 
   constructor(private postagemService: PostagemService) { }
 
   ngOnInit(): void {
     this.findallPostagens()
+    let item: string = localStorage.getItem('delOk')
+    if (item == "true") {
+      this.alerta = true
+      localStorage.clear()
 
+      setTimeout(() => {
+        location.assign('/feed')
+      }, 3000)
+
+
+
+      location.assign('/feed')
+    }
     window.scroll(0, 0)
 
   }
@@ -39,5 +53,10 @@ export class FeedComponent implements OnInit {
     })
   }
 
+  pesquisarPorTitulo() {
+    this.postagemService.findByTitulo(this.titulo).subscribe((resp: Postagem[]) => {
+      this.listaPostagens = resp
+    })
+  }
 }
 
