@@ -50,6 +50,7 @@ export class FeedComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       location.assign('/feed')
+
     })
   }
 
